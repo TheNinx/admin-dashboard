@@ -1,7 +1,8 @@
 <template>
   <main class="columns is-gapless is-multiline">
     <div>
-      <SideBar/>
+      <SideBar :email="email" :possui-email="possui"/>
+
     </div>
     <div class="column is-three-quarter">
         <p>aa</p>
@@ -21,6 +22,13 @@ export default defineComponent({
   components: {
     SideBar,
 
+  },
+
+  data(){
+    return{
+      email: "Wellgow@gmail.com",
+      possui: true,
+    }
   }
 });
 </script>

@@ -1,18 +1,42 @@
 <template>
   <header>
-  <h1><img alt="Vue logo" src="../assets/logo.png"></h1>-->
+  <h1><img alt="Vue logo" src="../assets/logo.png"></h1>
+    <h1 v-if="possui">{{ emailPrincipal }}</h1>
+    <button @click="show">TESTE</button>
+
   </header>
 
 
 
 </template>
 
-<script>
+<script lang="ts">
 
 import {defineComponent} from "vue";
 
 export default  defineComponent({
-  name: "SideBar"
+
+
+
+  name: "SideBar",
+  props:{
+    email: String,
+    possuiEmail: Boolean,
+  },
+
+  data(){
+    return{
+      emailPrincipal: this.email,
+      possui: this.possuiEmail,
+    }
+  },
+
+  methods:{
+     show: function (){
+       this.possui = false;
+     }
+  }
+
 })
 </script>
 

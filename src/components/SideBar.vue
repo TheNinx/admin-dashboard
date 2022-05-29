@@ -4,7 +4,10 @@
     <h1><img alt="Vue logo" src="../assets/logo.png"></h1>
 
 
-    <article class="panel">
+    <article class="panel bar">
+
+
+
         <a class="panel-block is-active">
             <span class="panel-icon">
               <i class="fas fa-book" aria-hidden="true"></i>
@@ -66,6 +69,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.bar a{
+  color: white ;
+}
 
 header {
   /*padding: 1rem;*/

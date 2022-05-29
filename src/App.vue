@@ -5,7 +5,7 @@
 
     </div>
     <div class="column is-three-quarter">
-        <fotos-view/>
+        <UsuariosView/>
     </div>
 
   </main>
@@ -16,13 +16,16 @@
 import { defineComponent } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import SideBar from "@/components/SideBar.vue";
-import FotosView from "@/components/FotosView.vue";
+
+import UsuariosView from "@/components/UsuariosView.vue";
 
 export default defineComponent({
   name: 'App',
   components: {
     SideBar,
-    FotosView,
+    UsuariosView
+
+
   },
 
   data(){

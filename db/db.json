@@ -1,17 +1,46 @@
 {
   "Usuarios": [
-    { "id": 1, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 2, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 3, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 4, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 5, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 6, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 7, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 8, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 9, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 10, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 11, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 12, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1},
-    { "id": 13, "nome": "json-server", "sexo": "typicode","email": "wellgow@gmail.com","status": 1}
+    {
+      "id": 1,
+      "nome": "json-server",
+      "sexo": "typicode",
+      "email": "wellgow@gmail.com",
+      "status": 1
+    },
+    {
+      "id": 2,
+      "nome": "json-server",
+      "sexo": "typicode",
+      "email": "wellgow@gmail.com",
+      "status": 1
+    },
+    {
+      "id": 3,
+      "nome": "json-server",
+      "sexo": "typicode",
+      "email": "wellgow@gmail.com",
+      "status": 1
+    },
+    {
+      "id": 4,
+      "nome": "json-server",
+      "sexo": "typicode",
+      "email": "wellgow@gmail.com",
+      "status": 1
+    },
+    {
+      "id": 5,
+      "nome": "wellington silva",
+      "sexo": "M",
+      "email": "Thewell@gmail.com",
+      "status": 1
+    },
+    {
+      "id": 6,
+      "nome": "wellington silva",
+      "sexo": "M",
+      "email": "Thewell@gmail.com",
+      "status": 1
+    }
   ]
 }

@@ -5,5 +5,6 @@ export default interface IUsuario{
     nome: string,
     sexo: string,
     email: string,
-    status: string,
+    status: number,
+
 }

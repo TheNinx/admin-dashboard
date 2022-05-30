@@ -85,9 +85,9 @@
       </td>
       <td>
 
+        <button class="button" @click="edit(usuario)">EDITAR</button>
+        <button class="button">EXCLUIR</button>
 
-        <a>EXCLUIR</a>
-        <a>EDITAR</a>
       </td>
     </tr>
     </tbody>
@@ -142,6 +142,10 @@ export default defineComponent({
         console.table(resp)
         this.usuarios = resp.data
       })
+    },
+    edit: function (usuario: IUsuario){
+      this.modal = 'is-active'
+      this.usuario = usuario
     }
 
   }

@@ -152,15 +152,7 @@ export default defineComponent({
       this.modal = 'is-active'
       this.usuario = usuario
     },
-    token: function () {
 
-      Tasks.login().then(resp =>{
-        localStorage.setItem('token',resp.data.token)
-        console.log(resp)
-      })
-
-
-    },
 
     listarTask: function (){
 

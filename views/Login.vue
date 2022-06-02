@@ -8,16 +8,13 @@
               <div class="field">
                 <label for="" class="label">Email</label>
                 <div class="control has-icons-left">
-                  <input type="email" class="input" required>
+                  <input type="email" class="input" required v-model="userLogin.email">
                 </div>
               </div>
               <div class="field">
                 <label for="" class="label">Senha</label>
                 <div class="control has-icons-left">
-                  <input type="password" class="input" required>
-                  <span class="icon is-small is-left">
-                  <i class="fa fa-lock"></i>
-                </span>
+                  <input type="password" class="input" required v-model="userLogin.password">
                 </div>
               </div>
               <div class="field">
@@ -27,7 +24,7 @@
                 </label>
               </div>
               <div class="field">
-                <button class="button is-success">
+                <button @click="loginUser" class="button is-success">
                   Login
                 </button>
               </div>
@@ -42,9 +39,30 @@
 <script>
 
 import {defineComponent} from "vue";
+import Login from "@/services/login";
 
-export default defineComponent( {
-  name: "LoginView.vue"
+export default defineComponent({
+  name: "LoginView.vue",
+  data() {
+    return {
+
+      userLogin: {
+        email: '',
+        password: '',
+      },
+
+    }
+  },
+  methods: {
+    loginUser: function () {
+
+      Login.login(this.userLogin).then(resp => {
+        localStorage.setItem('token', resp.data.token)
+        console.log(resp)
+      })
+
+    },
+  }
 })
 </script>
 

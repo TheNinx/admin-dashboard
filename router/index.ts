@@ -1,5 +1,6 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
 import Login from "../views/Login.vue"
+import Painel from "../views/Template.vue"
 import beforeEach from "./beforeEach";
 
 const rotas: RouteRecordRaw[] = [{
@@ -7,6 +8,10 @@ const rotas: RouteRecordRaw[] = [{
     name: 'login',
     component: Login
 
+},{
+    path: '/painel',
+    name: 'painel',
+    component: Painel
 }]
 
 

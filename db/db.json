@@ -12,7 +12,7 @@
       "nome": "json-server",
       "sexo": "typicode",
       "email": "wellgow@gmail.com",
-      "status": 1
+      "status": 0
     },
     {
       "id": 3,
@@ -40,7 +40,7 @@
       "nome": "wellington silva",
       "sexo": "M",
       "email": "Thewell@gmail.com",
-      "status": 1
+      "status": 0
     },
     {
       "id": 7,
@@ -68,6 +68,27 @@
       "nome": "WELITA",
       "sexo": "F",
       "email": "Thewell@gmail.com",
+      "status": 1
+    },
+    {
+      "id": 987,
+      "nome": "teste2",
+      "sexo": "M",
+      "email": "well@well.com",
+      "status": 1
+    },
+    {
+      "id": 655,
+      "nome": "carlao",
+      "sexo": "F",
+      "email": "well@well.com",
+      "status": 1
+    },
+    {
+      "id": 100,
+      "nome": "Carlos Eduardo Cabral",
+      "sexo": "F",
+      "email": "dulcedasgracasgoncalves@gmail.com",
       "status": 1
     }
   ]

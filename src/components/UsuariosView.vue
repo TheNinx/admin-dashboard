@@ -1,4 +1,8 @@
 <template>
+  <h1>GET TOKEN</h1>
+  <button class="button" @click="token()">TOKEN</button>
+  <h1>GET TASK</h1>
+  <button class="button" @click="listarTask()">GETTAK</button>
   <button class="button is-success"  @click="abrir()">Cadastrar</button>
   <div class="modal" v-bind:class="modal">
     <div class="modal-background"></div>
@@ -40,6 +44,7 @@
           <button class="button" @click="fechar()">Cancel</button>
         </footer>
       </form>
+
     </div>
   </div>
   <table class="table is-fullwidth">
@@ -94,10 +99,10 @@
   </table>
 </template>
 
-
 <script lang="ts">
 import {defineComponent} from "vue";
 import Usuarios from '../services/usuarios'
+import Tasks from "@/services/tasks";
 import IUsuario from "@/interfaces/IUsuario"
 
 export default defineComponent({
@@ -131,7 +136,7 @@ export default defineComponent({
       this.modal = ''
     },
     salvar: function () {
-      Usuarios.salvar(this.usuario).then(resp =>{
+      Usuarios.salvar(this.usuario).then(resp  =>{
         alert("Cadastrado com sucesso")
         this.modal = ''
         this.listar()
@@ -146,6 +151,22 @@ export default defineComponent({
     edit: function (usuario: IUsuario){
       this.modal = 'is-active'
       this.usuario = usuario
+    },
+    token: function () {
+
+      Tasks.login().then(resp =>{
+        localStorage.setItem('token',resp.data.token)
+        console.log(resp)
+      })
+
+
+    },
+
+    listarTask: function (){
+
+      Tasks.listarTask().then(resp =>{
+        console.log(resp)
+      })
     }
 
   }

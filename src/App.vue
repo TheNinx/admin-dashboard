@@ -1,14 +1,16 @@
 <template>
-  <main class="columns is-gapless is-multiline">
-    <div>
-      <SideBar :email="email" :possui-email="possui"/>
+  <router-view/>
+<!--  <main class="columns is-gapless is-multiline">-->
+<!--    <div>-->
+<!--      <SideBar :email="email" :possui-email="possui"/>-->
 
-    </div>
-    <div class="column is-three-quarter">
-        <UsuariosView/>
-    </div>
+<!--    </div>-->
+<!--    <div class="column is-three-quarter">-->
+<!--&lt;!&ndash;        <UsuariosView/>&ndash;&gt;-->
+<!--     -->
+<!--    </div>-->
 
-  </main>
+<!--  </main>-->
 
 </template>
 
@@ -22,8 +24,8 @@ import UsuariosView from "@/components/UsuariosView.vue";
 export default defineComponent({
   name: 'App',
   components: {
-    SideBar,
-    UsuariosView
+    //SideBar,
+    // UsuariosView
 
 
   },

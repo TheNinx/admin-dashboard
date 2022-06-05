@@ -7,9 +7,10 @@
           <button type="submit" class="button ml-1">+Add</button>
 
 
+
       </div>
     </form>
-
+    {{msm}}
     <table class="table is-fullwidth md-6">
 
       <tbody>
@@ -53,6 +54,8 @@ export default defineComponent({
         tempo: '2022-03-04'
       },
 
+      msm: '',
+
       tasks: [] as Task[]
 
 
@@ -66,14 +69,27 @@ export default defineComponent({
   methods: {
     novaTask: function (){
       Tasks.novaTask(this.taskForm)
-      this.listarTask()
+          .then(response => {
+           console.log(response.data.sucesso);
+           if (response.data.sucesso){
+             this.msm = '<div class="notification is-primary is-light">\n' +
+                 '  <button class="delete"></button>\n' +
+                 '  Primar lorem ipsum dolor sit amet, consectetur\n' +
+                 '  adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.\n' +
+                 '</div>'
+           }
+
+      })
+          .catch(error => {
+            console.log(error.data.error);
+          })
     },
 
 
     finalizaTask:function (id: bigint){
 
       Tasks.deletarTask(id).then(resp =>{
-        alert("finalizou")
+
         this.listarTask()
       })
 

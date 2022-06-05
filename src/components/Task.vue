@@ -1,9 +1,14 @@
 <template>
   <div class="p-3">
-    <div class="columns p-3">
-      <input class="input p-1" type="text" placeholder="Task">
-      <button class="button ml-1">+Add</button>
-    </div>
+    <form @submit.prevent="novaTask">
+      <div class="columns p-3">
+
+          <input class="input p-1" type="text" placeholder="Task" v-model="taskForm.nome">
+          <button type="submit" class="button ml-1">+Add</button>
+
+
+      </div>
+    </form>
 
     <table class="table is-fullwidth md-6">
 
@@ -34,6 +39,7 @@
 
 import {defineComponent} from "vue";
 import Tasks from "@/services/tasks";
+import Task from "@/interfaces/ITask"
 
 
 export default defineComponent({
@@ -42,11 +48,12 @@ export default defineComponent({
   data() {
     return {
 
-      tasks: [{
-        id: null,
-        nome: null,
-        tempo: null,
-      }],
+      taskForm: {
+        nome: '',
+        tempo: '2022-03-04'
+      },
+
+      tasks: [] as Task[]
 
 
     }
@@ -57,8 +64,19 @@ export default defineComponent({
   },
 
   methods: {
+    novaTask: function (){
+      Tasks.novaTask(this.taskForm)
+      this.listarTask()
+    },
+
+
     finalizaTask:function (id: bigint){
-      alert("tarefa a ser finalizada" + id)
+
+      Tasks.deletarTask(id).then(resp =>{
+        alert("finalizou")
+        this.listarTask()
+      })
+
     },
     listarTask: function () {
 

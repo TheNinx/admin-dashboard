@@ -6,7 +6,7 @@
 
     </div>
     <div class="column is-three-quarter">
-      <UsuariosView/>
+     <template-view/>
     </div>
 
   </main>
@@ -17,8 +17,8 @@
 
 import {defineComponent} from "vue";
 import SideBar from "@/components/SideBar.vue";
-import UsuariosView from "@/components/UsuariosView.vue";
-import IUsuario from "@/interfaces/IUsuario";
+import TemplateView from "@/components/Task.vue";
+
 
 export default defineComponent({
   name: "TemplateView",
@@ -27,7 +27,7 @@ export default defineComponent({
 
   components: {
     SideBar,
-    UsuariosView
+    TemplateView
   }
 
 })

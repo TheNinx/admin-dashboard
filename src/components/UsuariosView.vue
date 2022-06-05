@@ -154,12 +154,7 @@ export default defineComponent({
     },
 
 
-    listarTask: function (){
 
-      Tasks.listarTask().then(resp =>{
-        console.log(resp)
-      })
-    }
 
   }
 })

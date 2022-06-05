@@ -58,7 +58,7 @@ export default defineComponent({
 
       Login.login(this.userLogin).then(resp => {
         localStorage.setItem('token', resp.data.token)
-        console.log(resp)
+
       })
 
     },

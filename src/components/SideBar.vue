@@ -49,21 +49,17 @@ export default defineComponent({
   name: "SideBar",
   props: {
     email: String,
-    possuiEmail: Boolean,
+
   },
 
   data() {
     return {
       emailPrincipal: this.email,
-      possui: this.possuiEmail,
+
     }
   },
 
-  methods: {
-    show: function () {
-      this.possui = false;
-    }
-  }
+
 
 })
 </script>

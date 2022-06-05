@@ -2,11 +2,10 @@
 
   <main class="columns is-gapless is-multiline">
     <div>
-      <SideBar :email="email" :possui-email="possui"/>
-
+      <SideBar/>
     </div>
     <div class="column is-three-quarter">
-     <template-view/>
+     <Task/>
     </div>
 
   </main>
@@ -17,17 +16,14 @@
 
 import {defineComponent} from "vue";
 import SideBar from "@/components/SideBar.vue";
-import TemplateView from "@/components/Task.vue";
+import Task    from "@/components/Task.vue";
 
 
 export default defineComponent({
   name: "TemplateView",
-
-
-
   components: {
     SideBar,
-    TemplateView
+    Task
   }
 
 })

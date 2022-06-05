@@ -33,7 +33,7 @@ export default defineComponent({
   data(){
     return{
       email: "Wellgow@gmail.com",
-      possui: true,
+
     }
   }
 });

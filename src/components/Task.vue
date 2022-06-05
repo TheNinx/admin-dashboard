@@ -1,54 +1,33 @@
 <template>
-  <table class="table is-fullwidth">
-    <thead>
-    <tr>
-      <th>
-        ID
-      </th>
-      <th>
-        Nome
-      </th>
-      <th>
-        Sexo
-      </th>
-      <th>
-        E-mail
-      </th>
-      <th>
-        Status
-      </th>
-      <th>
-        Ações
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="usuario of usuarios" :key="usuario.id">
-      <td>
-        {{ usuario.id }}
-      </td>
-      <td>
-        {{ usuario.nome }}
-      </td>
-      <td>
-        {{ usuario.sexo }}
-      </td>
-      <td>
-        {{ usuario.email }}
-      </td>
-      <td>
-        <span v-if="usuario.status == 1" class="tag is-primary">Ativo</span>
-        <span v-if="usuario.status == 0" class="tag is-danger">Inativo</span>
-      </td>
-      <td>
+  <div class="p-3">
+    <div class="columns p-3">
+      <input class="input p-1" type="text" placeholder="Task">
+      <button class="button ml-1">+Add</button>
+    </div>
 
-        <button class="button" @click="edit(usuario)">EDITAR</button>
-        <button class="button">EXCLUIR</button>
+    <table class="table is-fullwidth md-6">
 
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      <tbody>
+      <tr v-for="task of tasks" :key="task.id">
+        <td>
+          <input type="checkbox" @click="finalizaTask(task.id)">
+        </td>
+        <td>
+          {{ task.nome }}
+        </td>
+        <td>
+          {{ task.tempo }}
+        </td>
+
+        <td>
+          <span class="tag is-primary">Ativo</span>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -63,27 +42,30 @@ export default defineComponent({
   data() {
     return {
 
-       task:  {
+      tasks: [{
         id: null,
         nome: null,
         tempo: null,
-      },
-
-
-
-
+      }],
 
 
     }
   },
 
-  methods: {
+  mounted() {
+    this.listarTask()
+  },
 
+  methods: {
+    finalizaTask:function (id: bigint){
+      alert("tarefa a ser finalizada" + id)
+    },
     listarTask: function () {
 
       Tasks.listarTask().then(resp => {
-        console.log(resp)
+        this.tasks = resp.data
       })
+
     }
   }
 

@@ -1,16 +1,17 @@
 <template>
+
   <div class="p-3">
     <form @submit.prevent="novaTask">
       <div class="columns p-3">
 
-          <input class="input p-1" type="text" placeholder="Task" v-model="taskForm.nome">
+          <input class="input p-1" type="text" placeholder="Task" v-model="taskForm.nome"  style="text-transform:uppercase"  required>
           <button type="submit" class="button ml-1">+Add</button>
 
 
 
       </div>
     </form>
-    {{msm}}
+
     <table class="table is-fullwidth md-6">
 
       <tbody>
@@ -18,15 +19,16 @@
         <td>
           <input type="checkbox" @click="finalizaTask(task.id)">
         </td>
-        <td>
-          {{ task.nome }}
+        <td >
+          {{ task.nome.toUpperCase() }}
         </td>
         <td>
-          {{ task.tempo }}
+
+          {{ formatarData(task.created_at) }}
         </td>
 
         <td>
-          <span class="tag is-primary">Ativo</span>
+          <span class="tag is-primary">TASK</span>
 
         </td>
       </tr>
@@ -38,23 +40,26 @@
 
 <script lang="ts">
 
-import {defineComponent} from "vue";
-import Tasks from "@/services/tasks";
+import {defineComponent} from "vue"
+import Tasks from "@/services/tasks"
 import Task from "@/interfaces/ITask"
+import { toast } from 'bulma-toast'
+
 
 
 export default defineComponent({
   name: "TaskView",
 
   data() {
+    const datebr =  new Date()
+    var date = datebr.getFullYear()+'-'+(datebr.getMonth()+1)+'-'+datebr.getDate()
+    var time = datebr.getHours() + ":" + datebr.getMinutes() + ":" + datebr.getSeconds()
     return {
 
       taskForm: {
         nome: '',
-        tempo: '2022-03-04'
+        tempo: date + ' ' + time,
       },
-
-      msm: '',
 
       tasks: [] as Task[]
 
@@ -64,24 +69,37 @@ export default defineComponent({
 
   mounted() {
     this.listarTask()
+
   },
 
   methods: {
     novaTask: function (){
       Tasks.novaTask(this.taskForm)
           .then(response => {
-           console.log(response.data.sucesso);
-           if (response.data.sucesso){
-             this.msm = '<div class="notification is-primary is-light">\n' +
-                 '  <button class="delete"></button>\n' +
-                 '  Primar lorem ipsum dolor sit amet, consectetur\n' +
-                 '  adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.\n' +
-                 '</div>'
-           }
+           console.log(response.data.sucesso)
+            if (response.data.sucesso){
+              toast({
+                message: 'Sua tarefa foi salva com sucesso',
+                type: 'is-success',
+                dismissible: true,
+                position:  'bottom-right',
+                pauseOnHover: true,
+              })
+            }else{
+              toast({
+                message: 'Não foi possivel salvar sua tarefa',
+                type: 'is-danger',
+                dismissible: true,
+                position:  'bottom-right',
+                pauseOnHover: true,
+              })
+            }
+           this.taskForm.nome = ''
+           this.listarTask();
 
       })
           .catch(error => {
-            console.log(error.data.error);
+            console.log(error.data.error)
           })
     },
 
@@ -100,7 +118,14 @@ export default defineComponent({
         this.tasks = resp.data
       })
 
+    },
+
+    formatarData: function (date:any){
+      const formatDate = new Date(date);
+      return formatDate.toLocaleString('pt-br', { timeZone: 'UTC' })
     }
+
+
   }
 
 })

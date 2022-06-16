@@ -54,6 +54,7 @@ export default defineComponent({
     const datebr =  new Date()
     var date = datebr.getFullYear()+'-'+(datebr.getMonth()+1)+'-'+datebr.getDate()
     var time = datebr.getHours() + ":" + datebr.getMinutes() + ":" + datebr.getSeconds()
+
     return {
 
       taskForm: {
